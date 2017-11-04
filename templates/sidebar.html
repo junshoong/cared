@@ -1,0 +1,26 @@
+<div class="sidebar">
+    <img class="profile-img" src="{{ SITEURL }}/images/{{ PROFILE_IMAGE }}">
+    <h2 class="sitename"> {{ SITENAME }} </h2>
+    <div class="category">
+        <ul>
+            {% for category, articles in categories %}
+            <li>
+                 <a class="category-item" href="{{ SITEURL }}/{{ category.url }}"> {{ category.name }} </a> 
+                 <span class="category-item-count">({{ articles|length }})</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="social">
+        <ul>
+            {% for name, link in SOCIAL %}
+            {% if name == 'email' %}
+            <li> <a class="item" href="mailto:{{ link }}"> {{ name }} </a> </li>
+            {% else %}
+            <li> <a class="item" href="{{ link }}"> {{ name }} </a> </li>
+            {% endif %}
+            {% endfor %}
+            <li> <a class="item" href="{{ FEED_ALL_RSS }}"> FEED </a> </li>
+        </ul>
+    </div>
+</div>
