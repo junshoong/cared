@@ -1,26 +1,22 @@
-<div class="sidebar">
-    <img class="profile-img" src="{{ SITEURL }}/images/{{ PROFILE_IMAGE }}">
-    <h2 class="sitename"> {{ SITENAME }} </h2>
-    <div class="category">
-        <ul>
-            {% for category, articles in categories %}
-            <li>
-                 <a class="category-item" href="{{ SITEURL }}/{{ category.url }}"> {{ category.name }} </a> 
-                 <span class="category-item-count">({{ articles|length }})</span>
-            </li>
-            {% endfor %}
-        </ul>
+<div class="col-md-3 sidebar">
+    <div class="list-group category">
+        <div class="list-group-item list-group-item-primary"> Category </div>
+        {% for category, articles in categories %}
+        <a class="list-group-item list-group-item-action category-item" href="{{ SITEURL }}/{{ category.url }}">
+            {{ category.name }}
+            <span class="category-item-count">({{ articles|length }})</span>
+        </a> 
+        {% endfor %}
     </div>
-    <div class="social">
-        <ul>
-            {% for name, link in SOCIAL %}
-            {% if name == 'email' %}
-            <li> <a class="item" href="mailto:{{ link }}"> {{ name }} </a> </li>
-            {% else %}
-            <li> <a class="item" href="{{ link }}"> {{ name }} </a> </li>
-            {% endif %}
-            {% endfor %}
-            <li> <a class="item" href="{{ FEED_ALL_RSS }}"> FEED </a> </li>
-        </ul>
+    <div class="list-group social">
+        <div class="list-group-item list-group-item-primary"> Social </div>
+        {% for name, link in SOCIAL %}
+        {% if name == 'email' %}
+        <a class="list-group-item list-group-item-action" href="mailto:{{ link }}"> {{ name }} </a>
+        {% else %}
+        <a class="list-group-item list-group-item-action" href="{{ link }}"> {{ name }} </a>
+        {% endif %}
+        {% endfor %}
+        <a class="list-group-item list-group-item-action" href="{{ FEED_ALL_RSS }}"> FEED </a>
     </div>
 </div>
