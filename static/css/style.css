@@ -15,6 +15,13 @@ html {
     padding: auto;
 }
 
+.header-title a {
+    color: black;
+}
+.header-title a:hover {
+    text-decoration: none;
+}
+
 .profile-img {
     margin: 0 auto;
     border-radius: 50%;
